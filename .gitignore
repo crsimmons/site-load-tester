@@ -1,2 +1,2 @@
-*.html
-urls.txt
+/data/
+/urls.txt

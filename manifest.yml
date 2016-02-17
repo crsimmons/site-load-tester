@@ -7,6 +7,6 @@ applications:
   stack: cflinuxfs2
   env:
     TARGET_FILE: urls.txt
-    RATE_PS: 50
-    DURATION: 120s
+    RATE_PS: 10
+    DURATION: 30s
     KEEPALIVE: false

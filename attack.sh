@@ -5,6 +5,7 @@
 : ${TARGET_FILE:=urls.txt}
 : ${KEEPALIVE:=true}
 : ${REPORTS:=text json plot}
+: ${DUMPS:=csv json}
 
 ./vegeta attack \
   -duration=$DURATION \
@@ -18,3 +19,11 @@ for REPORT in $REPORTS; do
   | ./vegeta report -reporter=$REPORT \
   > public/report.$REPORT
 done
+
+for DUMP in $DUMPS; do
+  cat results.bin \
+  | ./vegeta dump -dumper=$DUMP \
+  > public/dump.$DUMP
+done
+
+mv results.bin public/
