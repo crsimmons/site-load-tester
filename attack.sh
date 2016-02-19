@@ -26,4 +26,10 @@ for DUMP in $DUMPS; do
   > public/dump.$DUMP
 done
 
+sed -i.orig \
+  '1s/^/\[/;
+   1!s/^/,/;
+   $s/$/\]/' \
+   public/dump.json
+
 mv results.bin public/
