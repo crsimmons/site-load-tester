@@ -6,6 +6,7 @@
 : ${KEEPALIVE:=true}
 : ${REPORTS:=text json plot}
 : ${DUMPS:=csv json}
+: ${COMPONENT_DIR:=components}
 
 ./vegeta attack \
   -duration=$DURATION \
@@ -31,5 +32,12 @@ sed -i.orig \
    1!s/^/,/;
    $s/$/\]/' \
    public/dump.json
+
+cat $COMPONENT_DIR/plot_start.html \
+    public/dump.json \
+    $COMPONENT_DIR/plot_script.js \
+    $COMPONENT_DIR/plot_end.html \
+    > plot.html
+mv plot.html public/
 
 mv results.bin public/
