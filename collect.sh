@@ -9,6 +9,6 @@ TIMENOW=$(date "+%s")
 
 mkdir -p data
 
-for THING in report.{json,text,plot} dump.{json,csv}; do
-  curl $CF_URI/$THING > data/$TIMENOW.$THING 2>/dev/null ; true
+for REPORT in report.{json,text,plot} dump.{json,csv} plot.html; do
+  curl $CF_URI/$REPORT > data/$TIMENOW.$REPORT 2>/dev/null ; true
 done
