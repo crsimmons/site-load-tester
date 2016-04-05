@@ -29,4 +29,3 @@ Should you want to edit what is shown in the plot, the JavaScript that generates
 This app utilises:
 vegeta - https://github.com/tsenart/vegeta
 plotly - https://github.com/plotly/plotly.js
- 
